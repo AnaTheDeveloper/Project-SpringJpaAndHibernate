@@ -3,14 +3,18 @@ package com.example.udemyjpaproject.entity;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
 //@Table - To specify the table name, as it could be different elsewhere.
+
+@NamedQueries(value = {
+        @NamedQuery(name="query_get_all_courses", query="SELECT c FROM Course c"),
+        @NamedQuery(name="query_get_100_Step_courses", query="SELECT  c  FROM Course c WHERE name LIKE '%100 Steps'")
+})
+
+
 public class Course {
 
     @Id
