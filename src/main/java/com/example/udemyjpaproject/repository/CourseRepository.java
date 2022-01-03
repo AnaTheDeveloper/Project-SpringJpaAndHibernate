@@ -83,5 +83,14 @@ public class CourseRepository {
 
     }
 
+    //Hibernate Annotation Experimentation
+
+    public void playWithHibernateAnnotations(){
+
+        Course course = findById(10001L);
+        course.setName("JPA in 50 Steps - Updated");
+
+    }
+
 
 }

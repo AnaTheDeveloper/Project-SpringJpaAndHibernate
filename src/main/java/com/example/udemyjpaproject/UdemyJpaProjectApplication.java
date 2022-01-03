@@ -36,8 +36,10 @@ public class UdemyJpaProjectApplication implements CommandLineRunner {
 //        repository.save(new Course("Microservices Introduction"));
 
         //Entity Manager
+//        repository.playWithEntityManager();
 
-        repository.playWithEntityManager();
+        //Hibernate Annotations
+        repository.playWithHibernateAnnotations();
 
 
 
