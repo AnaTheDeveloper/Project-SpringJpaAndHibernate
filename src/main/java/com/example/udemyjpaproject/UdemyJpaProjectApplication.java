@@ -39,7 +39,7 @@ public class UdemyJpaProjectApplication implements CommandLineRunner {
 //        repository.playWithEntityManager();
 
         //Hibernate Annotations
-        repository.playWithHibernateAnnotations();
+//        repository.playWithHibernateAnnotations();
 
 
 
