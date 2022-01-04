@@ -1,6 +1,7 @@
 package com.example.udemyjpaproject.repository;
 
 import com.example.udemyjpaproject.UdemyJpaProjectApplication;
+import com.example.udemyjpaproject.entity.Passport;
 import com.example.udemyjpaproject.entity.Student;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -23,7 +24,7 @@ public class StudentRepositoryTest {
     EntityManager em;
 
     @Test
-    @Transactional
+    @Transactional //Persistence Context - Where the changes are kept track of in. And gives access to database.
     public void retrieveStudentAndPassportDetails() {
         //Eager and Lazy fetching
         Student student = em.find(Student.class, 20001L);
@@ -38,6 +39,15 @@ public class StudentRepositoryTest {
         logger.info("passport -> {}", student.getPassport());
 
     }
+
+    @Test
+    @Transactional
+    public void retrievePassportAndAssociatedStudent() {
+        Passport passport = em.find(Passport.class, 30001L);
+        logger.info("passport -> {}", passport);
+        logger.info("student -> {}", passport.getStudent());
+    }
+
 
 
 

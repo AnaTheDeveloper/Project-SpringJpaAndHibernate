@@ -13,9 +13,9 @@ public class Student {
     private String name;
 
     //Defining Relationships
+    //Defined owning side
     @OneToOne(fetch=FetchType.LAZY)
     private Passport passport;
-
 
     //Constructors
     protected Student(){}
