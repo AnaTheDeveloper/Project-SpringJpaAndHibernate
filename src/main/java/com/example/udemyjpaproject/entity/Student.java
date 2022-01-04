@@ -1,9 +1,6 @@
 package com.example.udemyjpaproject.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Student {
@@ -15,12 +12,19 @@ public class Student {
     @Column(nullable = false)
     private String name;
 
+    //Defining Relationships
+    @OneToOne
+    private Passport passport;
+
+
+    //Constructors
     protected Student(){}
 
     public Student(String name) {
         this.name = name;
     }
 
+    //Getters and Setters
     public Long getId() {
         return id;
     }
