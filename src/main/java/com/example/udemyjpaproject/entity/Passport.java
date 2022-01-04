@@ -1,9 +1,6 @@
 package com.example.udemyjpaproject.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Passport {
@@ -14,6 +11,11 @@ public class Passport {
 
     @Column(nullable = false)
     private String number;
+
+    //This clashes with the owning side, so we specify which side is the owning side. private Passport passport; in Student. passport is the name.
+    //Adding mappedBy on the noon-owning side of the relationship
+    @OneToOne(fetch=FetchType.LAZY, mappedBy = "passport")
+    private Student student;
 
     protected Passport(){}
 
@@ -31,6 +33,14 @@ public class Passport {
 
     public void setNumber(String number) {
         this.number = number;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
     }
 
     @Override

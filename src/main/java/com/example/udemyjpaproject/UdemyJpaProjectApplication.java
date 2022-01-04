@@ -2,6 +2,7 @@ package com.example.udemyjpaproject;
 
 import com.example.udemyjpaproject.entity.Course;
 import com.example.udemyjpaproject.repository.CourseRepository;
+import com.example.udemyjpaproject.repository.StudentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,10 @@ public class UdemyJpaProjectApplication implements CommandLineRunner {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
-    private CourseRepository repository;
+    private CourseRepository courseRepository;
+
+    @Autowired
+    private StudentRepository studentRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(UdemyJpaProjectApplication.class, args);
@@ -41,7 +45,8 @@ public class UdemyJpaProjectApplication implements CommandLineRunner {
         //Hibernate Annotations
 //        repository.playWithHibernateAnnotations();
 
-
+        //Student Repository Call
+        studentRepository.saveStudentWithPassport();
 
     }
 }
