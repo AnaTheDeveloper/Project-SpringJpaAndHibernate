@@ -10,6 +10,6 @@ INSERT INTO student(id, name, passport_id) VALUES(20001, 'Mary', '30001');
 INSERT INTO student(id, name, passport_id) VALUES(20002, 'Bob', '30002');
 INSERT INTO student(id, name, passport_id) VALUES(20003, 'Jackson', '30003');
 
-INSERT INTO review(id, rating, description) VALUES(40001, '5', 'Okay');
-INSERT INTO review(id, rating, description) VALUES(40002, '3', 'Boring');
-INSERT INTO review(id, rating, description) VALUES(40003, '9', 'Amazing');
+INSERT INTO review(id, rating, description, course_id) VALUES(40001, '5', 'Okay', 10001);
+INSERT INTO review(id, rating, description, course_id) VALUES(40002, '3', 'Boring', 10001);
+INSERT INTO review(id, rating, description, course_id) VALUES(40003, '9', 'Amazing', 10003);
