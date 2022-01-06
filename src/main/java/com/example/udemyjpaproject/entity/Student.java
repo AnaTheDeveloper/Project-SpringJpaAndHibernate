@@ -1,6 +1,8 @@
 package com.example.udemyjpaproject.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Student {
@@ -16,6 +18,11 @@ public class Student {
     //Defined owning side
     @OneToOne(fetch=FetchType.LAZY)
     private Passport passport;
+
+    @ManyToMany
+    @JoinTable(name="STUDENT_COURSE", joinColumns = @JoinColumn(name = "STUDENT_ID"), inverseJoinColumns = @JoinColumn(name = "COURSE_ID")) //Add join table customization
+    private List<Course> courses = new ArrayList<>();
+
 
     //Constructors
     protected Student(){}
@@ -44,6 +51,17 @@ public class Student {
 
     public void setPassport(Passport passport) {
         this.passport = passport;
+    }
+
+    //Course getters and setters
+
+
+    public List<Course> getCourses() {
+        return courses;
+    }
+
+    public void addCourses(Course courses) {
+        this.courses.add(courses);
     }
 
     @Override
