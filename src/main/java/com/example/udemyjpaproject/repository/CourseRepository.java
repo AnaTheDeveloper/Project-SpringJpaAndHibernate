@@ -2,6 +2,7 @@ package com.example.udemyjpaproject.repository;
 
 
 import com.example.udemyjpaproject.entity.Course;
+import com.example.udemyjpaproject.entity.Review;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Repository
 @Transactional
@@ -90,6 +92,41 @@ public class CourseRepository {
         Course course = findById(10001L);
         course.setName("JPA in 50 Steps - Updated");
 
+    }
+
+    /*
+     Hibernate waits until the last possible moment, until the end of the transaction before it sends the update.
+     And send the query down to the database. Except when you say em.flash().
+     */
+
+    public void addHardcodedReviewsForCourse() {
+        //Retrieve reviews for a course
+        Course course = findById(10003L);
+        logger.info("Course.getReviews() -> {}", course.getReviews());
+        //Add new reviews
+        Review review1 = new Review("4", "Poor management");
+        Review review2 = new Review("10", "Fantastic Course!");
+        //Add reviews to the course and setting relationship
+        course.addReviews(review1);
+        review1.setCourse(course);
+
+        course.addReviews(review2);
+        review2.setCourse(course);
+        //Saving it to the database
+        em.persist(review1);
+        em.persist(review2);
+
+    }
+
+    public void addReviewsForCourse(Long courseId, List<Review> reviews){
+
+        Course course = findById(courseId);
+        logger.info("Course.getReviews() -> {}", course.getReviews());
+        for(Review review:reviews){
+            course.addReviews(review); //adding review
+            review.setCourse(course); //establishing relationship
+            em.persist(review); //save to database
+        }
     }
 
 

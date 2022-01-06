@@ -5,6 +5,8 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 //@Table - To specify the table name, as it could be different elsewhere.
@@ -25,6 +27,12 @@ public class Course {
     @Column(nullable = false)
     private String name;
 
+    @OneToMany(mappedBy = "course") //defined Review as owner side
+    private List<Review> reviews = new ArrayList<>();
+    /*
+    By default, on the one too many side of the relationship, fetch strategy is LAZY.
+     */
+
     //Hibernate Annotations
 
     @UpdateTimestamp
@@ -41,6 +49,12 @@ public class Course {
         this.name = name;
     }
 
+    //Getters and Setters
+
+    public Long getId() {
+        return id;
+    }
+
     public String getName() {
         return name;
     }
@@ -49,8 +63,18 @@ public class Course {
         this.name = name;
     }
 
-    public Long getId() {
-        return id;
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    //We don't want people to be able to set a review, so we change it to add instead and also add a remove method too.
+
+    public void addReviews(Review review) {
+        this.reviews.add(review);
+    }
+
+    public void removeReview(Review review) {
+        this.reviews.remove(review);
     }
 
     @Override

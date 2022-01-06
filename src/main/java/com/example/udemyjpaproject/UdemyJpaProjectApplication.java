@@ -1,6 +1,6 @@
 package com.example.udemyjpaproject;
 
-import com.example.udemyjpaproject.entity.Course;
+import com.example.udemyjpaproject.entity.Review;
 import com.example.udemyjpaproject.repository.CourseRepository;
 import com.example.udemyjpaproject.repository.StudentRepository;
 import org.slf4j.Logger;
@@ -9,6 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootApplication
 public class UdemyJpaProjectApplication implements CommandLineRunner {
@@ -46,7 +49,16 @@ public class UdemyJpaProjectApplication implements CommandLineRunner {
 //        repository.playWithHibernateAnnotations();
 
         //Student Repository Call
-        studentRepository.saveStudentWithPassport();
+//        studentRepository.saveStudentWithPassport();
+
+        //Course Repository Call
+//        courseRepository.addHardcodedReviewsForCourse();
+
+        List<Review> newReviews = new ArrayList<>();
+        newReviews.add(new Review("4", "Poor management"));
+        newReviews.add(new Review("10", "Fantastic Course!"));
+
+        courseRepository.addReviewsForCourse(10003L, newReviews);
 
     }
 }
