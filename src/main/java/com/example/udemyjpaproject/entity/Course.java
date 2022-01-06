@@ -33,6 +33,10 @@ public class Course {
     By default, on the one too many side of the relationship, fetch strategy is LAZY.
      */
 
+    @ManyToMany(mappedBy = "courses")
+    private List<Student> students = new ArrayList<>();
+
+
     //Hibernate Annotations
 
     @UpdateTimestamp
@@ -75,6 +79,14 @@ public class Course {
 
     public void removeReview(Review review) {
         this.reviews.remove(review);
+    }
+
+    public List<Student> getStudents() {
+        return students;
+    }
+
+    public void addStudents(Student students) {
+        this.students.add(students);
     }
 
     @Override

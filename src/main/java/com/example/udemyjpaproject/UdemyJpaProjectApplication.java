@@ -1,6 +1,8 @@
 package com.example.udemyjpaproject;
 
+import com.example.udemyjpaproject.entity.Course;
 import com.example.udemyjpaproject.entity.Review;
+import com.example.udemyjpaproject.entity.Student;
 import com.example.udemyjpaproject.repository.CourseRepository;
 import com.example.udemyjpaproject.repository.StudentRepository;
 import org.slf4j.Logger;
@@ -54,11 +56,15 @@ public class UdemyJpaProjectApplication implements CommandLineRunner {
         //Course Repository Call
 //        courseRepository.addHardcodedReviewsForCourse();
 
-        List<Review> newReviews = new ArrayList<>();
-        newReviews.add(new Review("4", "Poor management"));
-        newReviews.add(new Review("10", "Fantastic Course!"));
+//        List<Review> newReviews = new ArrayList<>();
+//        newReviews.add(new Review("4", "Poor management"));
+//        newReviews.add(new Review("10", "Fantastic Course!"));
+//
+//        courseRepository.addReviewsForCourse(10003L, newReviews);
 
-        courseRepository.addReviewsForCourse(10003L, newReviews);
+        //Student Repository method call
+//        studentRepository.insertHardcodedStudentAndCourse();
+//        studentRepository.insertStudentAndCourse(new Student("Jack"), new Course("Microservices in 100 Steps"));
 
     }
 }

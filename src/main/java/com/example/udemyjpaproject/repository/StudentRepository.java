@@ -1,9 +1,9 @@
 package com.example.udemyjpaproject.repository;
 
+import com.example.udemyjpaproject.entity.Course;
 import com.example.udemyjpaproject.entity.Passport;
 import com.example.udemyjpaproject.entity.Student;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -13,8 +13,6 @@ import javax.transaction.Transactional;
 @Repository
 @Transactional
 public class StudentRepository {
-
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     EntityManager em;
@@ -50,7 +48,24 @@ public class StudentRepository {
         em.persist(student);
     }
 
+    public void insertHardcodedStudentAndCourse(){
+        Student student = new Student("Jack");
+        Course course = new Course("Microservices in 100 Steps");
+        em.persist(student);
+        em.persist(course);
 
+        student.addCourses(course);
+        course.addStudents(student);
+        em.persist(student);
+    }
+
+    public void insertStudentAndCourse(Student student, Course course){
+        student.addCourses(course);
+        course.addStudents(student);
+
+        em.persist(student);
+        em.persist(course);
+    }
 
 
 
