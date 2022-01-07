@@ -74,7 +74,7 @@ public class UdemyJpaProjectApplication implements CommandLineRunner {
 //        employeeRepository.insertEmployee(new FullTimeEmployee("Jack", new BigDecimal("10000")));
 //        logger.info("All employees -> {}", employeeRepository.retrieveAllEmployees());
 
-        //SuperMappedclass emplyee call
+        //SuperMappedclass employee call
 //        employeeRepository.insertEmployee(new PartTimeEmployee("Mandy", new BigDecimal("50")));
 //        employeeRepository.insertEmployee(new FullTimeEmployee("Jack", new BigDecimal("10000")));
 //        logger.info("All full time employees -> {}", employeeRepository.retrieveAllFullTimeEmployees());
