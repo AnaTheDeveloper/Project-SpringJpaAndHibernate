@@ -1,5 +1,6 @@
 package com.example.udemyjpaproject.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -34,6 +35,7 @@ public class Course {
      */
 
     @ManyToMany(mappedBy = "courses")
+    //@JsonIgnore //used with spring-boot-starter-rest in pom
     private List<Student> students = new ArrayList<>();
 
 

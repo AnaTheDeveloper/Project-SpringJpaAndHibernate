@@ -80,8 +80,5 @@ public class UdemyJpaProjectApplication implements CommandLineRunner {
 //        logger.info("All full time employees -> {}", employeeRepository.retrieveAllFullTimeEmployees());
 //        logger.info("All part time employees -> {}", employeeRepository.retrieveAllPartTimeEmployees());
 
-
-
-
     }
 }
