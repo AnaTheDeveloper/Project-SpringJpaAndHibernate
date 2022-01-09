@@ -82,4 +82,21 @@ class CourseRepositoryTest {
         Review review = em.find(Review.class, 40001L);
         logger.info("{}", review.getCourse());
     }
+
+    //Cache
+
+    @Test
+    @Transactional
+    public void findById_firstLevelCacheDemo() {
+
+        Course course = repository.findById(10001L);
+        logger.info("First Course Retrieved {}", course);
+
+        Course course1 = repository.findById(10001L);
+        logger.info("First Course Retrieved again {}", course1);
+
+        assertEquals("JPA in 50 Steps", course.getName());
+        assertEquals("JPA in 50 Steps", course1.getName());
+    }
+
 }
