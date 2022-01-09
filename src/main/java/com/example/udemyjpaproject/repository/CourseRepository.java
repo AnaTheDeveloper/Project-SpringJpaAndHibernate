@@ -3,6 +3,7 @@ package com.example.udemyjpaproject.repository;
 
 import com.example.udemyjpaproject.entity.Course;
 import com.example.udemyjpaproject.entity.Review;
+import com.example.udemyjpaproject.entity.ReviewRating;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -104,8 +105,8 @@ public class CourseRepository {
         Course course = findById(10003L);
         logger.info("Course.getReviews() -> {}", course.getReviews());
         //Add new reviews
-        Review review1 = new Review("4", "Poor management");
-        Review review2 = new Review("10", "Fantastic Course!");
+        Review review1 = new Review(ReviewRating.ONE, "Poor management");
+        Review review2 = new Review(ReviewRating.FIVE, "Fantastic Course!");
         //Add reviews to the course and setting relationship
         course.addReviews(review1);
         review1.setCourse(course);
