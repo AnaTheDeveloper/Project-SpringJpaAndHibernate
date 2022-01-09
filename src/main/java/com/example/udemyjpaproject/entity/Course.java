@@ -16,7 +16,7 @@ import java.util.List;
         @NamedQuery(name="query_get_all_courses", query="SELECT c FROM Course c"),
         @NamedQuery(name="query_get_100_Step_courses", query="SELECT  c  FROM Course c WHERE name LIKE '%100 Steps'")
 })
-
+@Cacheable //Because we know it won't change and so can be cacheable.
 
 public class Course {
 
@@ -35,7 +35,7 @@ public class Course {
      */
 
     @ManyToMany(mappedBy = "courses")
-    //@JsonIgnore //used with spring-boot-starter-rest in pom
+    @JsonIgnore //used with spring-boot-starter-rest in pom
     private List<Student> students = new ArrayList<>();
 
 

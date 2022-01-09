@@ -3,10 +3,11 @@ package com.example.udemyjpaproject.repository;
 import com.example.udemyjpaproject.entity.Course;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import java.util.List;
 
-//@RepositoryRestResource(path="courses") //Used with spring-boot-starter-rest in pom //localhost:8080/courses
+@RepositoryRestResource(path="courses") //Used with spring-boot-starter-rest in pom //localhost:8080/courses
 public interface CourseSpringDataRepository extends JpaRepository<Course, Long> {
 
     //Custom Queries
