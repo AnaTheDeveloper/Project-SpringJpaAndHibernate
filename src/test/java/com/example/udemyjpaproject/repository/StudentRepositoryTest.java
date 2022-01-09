@@ -1,6 +1,7 @@
 package com.example.udemyjpaproject.repository;
 
 import com.example.udemyjpaproject.UdemyJpaProjectApplication;
+import com.example.udemyjpaproject.entity.Address;
 import com.example.udemyjpaproject.entity.Passport;
 import com.example.udemyjpaproject.entity.Student;
 import org.junit.jupiter.api.Test;
@@ -56,6 +57,15 @@ public class StudentRepositoryTest {
         logger.info("student -> {}", student);
         logger.info("courses -> {}", student.getCourses());
     }
+
+    @Test
+    @Transactional
+    public void setAddressDetails() {
+        Student student = em.find(Student.class, 20001L);
+        student.setAddress(new Address("No 101", "Sunny Street", "Berlin"));
+        em.flush();
+    }
+
 
 
 
