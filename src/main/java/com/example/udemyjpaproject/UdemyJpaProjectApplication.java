@@ -80,5 +80,23 @@ public class UdemyJpaProjectApplication implements CommandLineRunner {
 //        logger.info("All full time employees -> {}", employeeRepository.retrieveAllFullTimeEmployees());
 //        logger.info("All part time employees -> {}", employeeRepository.retrieveAllPartTimeEmployees());
 
+
+        /*
+        Notes on Entity Manager Life Cycle and Annotations
+
+        The first one is post load. If you mark a method in an entity with the notation at Postlude, it would be called
+        as soon as the entity is retrieved and loaded. If there is a select query fired and that specific entity is being
+        loaded, this specific method on the entity would be called the Post.
+
+        Post Persist is when you call the post method. So when you say entity manager, what persist? This specific entity,
+        the post possessed method would be called, it would be called after the entity is persisted to the database, the
+        post removed would be called when you would delete and when we would remove an entity so you would immediately
+        remove a specific entity. The post remove would be called after the entity removed from the database after to delete query is fired.
+
+        The post update is after an update to an entity is filed with the database. The other attributes which are present
+        in here at pre-persist, pre remove and pre update. These are all called before persisting. So before you possess
+        the data you would call pre-persist, just before you remove an entity you would call pre remove, and just before
+        you would update an entity, you would have pre update method called.
+         */
     }
 }

@@ -14,6 +14,12 @@ public class Student {
     @Column(nullable = false)
     private String name;
 
+    @Embedded
+    /*
+    We used embedded to take the values from another object and directly store them as part of the current entity.
+     */
+    private Address address;
+
     //Defining Relationships
     //Defined owning side
     @OneToOne(fetch=FetchType.LAZY)
@@ -42,6 +48,14 @@ public class Student {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     //Passport Getter

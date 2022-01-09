@@ -1,6 +1,6 @@
-INSERT INTO course(id, name, created_date, last_updated_date) VALUES(10001, 'JPA in 50 Steps', sysdate(), sysdate());
-INSERT INTO course(id, name, created_date, last_updated_date) VALUES(10002, 'Spring in 10 Steps', sysdate(), sysdate());
-INSERT INTO course(id, name, created_date, last_updated_date) VALUES(10003, 'Clean Code', sysdate(), sysdate());
+INSERT INTO course(id, name, created_date, last_updated_date, is_deleted) VALUES(10001, 'JPA in 50 Steps', sysdate(), sysdate(), false);
+INSERT INTO course(id, name, created_date, last_updated_date, is_deleted) VALUES(10002, 'Spring in 10 Steps', sysdate(), sysdate(), false);
+INSERT INTO course(id, name, created_date, last_updated_date, is_deleted) VALUES(10003, 'Clean Code', sysdate(), sysdate(), false);
 
 INSERT INTO passport(id, number) VALUES(30001, 'E27H73YH');
 INSERT INTO passport(id, number) VALUES(30002, 'JKH8237U');
